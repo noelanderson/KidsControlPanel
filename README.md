@@ -10,3 +10,5 @@ RP2040 board appears as a HID joystick and uses a VL6180X ranging sensor to meas
 ![Rp2040 hardware](Images/pcb-3d.png)
 ![Rp2040 hardware](Images/pcb-3d-2.png)
 
+
+![dashboard](Images/dashboard.png)
