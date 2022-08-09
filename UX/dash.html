@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/instruments.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <script src="js/instruments.js"></script>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">header</div>
+        <div class="leftUpperPane" id="airspeed"></div>
+        <div class="leftLowerPane" id="vsi"></div>
+        <div class="centerPane" id="attitude"></div>
+        <div class="rightUpperPane" id="heading"></div>
+        <div class="rightLowerPane" id="altimeter"></div>
+        <div class="footer">footer</div>
+    </div>
+
+
+    <script type="text/javascript">
+        "use strict";
+        var airspeed = new AirSpeed('airspeed', 222);
+        var heading = new Heading('heading', 222);
+        var altimeter = new Altimeter('altimeter', 222);
+        var vsi = new VerticalSpeedIndicator('vsi', 222);
+        //var radar = new Radar('attitude', 30, 580);
+        //radar.autoBeam();
+        //radar.plotAutoBlips(7);
+        var attitude = new AttitudeIndicator('attitude', 580);
+
+        // Update at 10Hz
+        var increment = 0;
+        setInterval(function () {
+            airspeed.setAirSpeed(80 + 80 * Math.sin(increment / 10))
+            heading.setHeading(increment);
+            altimeter.setAltitude(10 * increment);
+            vsi.setVsi(2 * Math.sin(increment / 10));
+            attitude.setRoll(30 * Math.sin(increment / 10));
+            attitude.setPitch(50 * Math.sin(increment / 20));
+            increment++;
+        }, 100);
+
+        
+    </script>
+</body>
+
+</html>

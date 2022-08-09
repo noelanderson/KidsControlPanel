@@ -1,0 +1,94 @@
+div.instrument {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.instrument .box {
+    margin: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.counter {
+    vertical-align: middle;
+    position: relative;
+    border-radius: 0.34em;
+    font-family: "Arimo", monospace;
+    padding: 0.20em;
+    background: #000;
+    color: #eee0d3;
+    margin: 0px;
+    text-align: center;
+}
+
+.counter .digit {
+    vertical-align: middle;
+    position: relative;
+    box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
+    background-size: 100%;
+    background-image: linear-gradient(to bottom, #333333 0%, #333333 40%, #101010 60%, #333333 80%, #333333 100%);
+    padding: 0 0.15em;
+}
+
+.counter .digit:first-child {
+    border-radius: 0.2em 0 0 0.2em;
+}
+
+.counter .digit:last-child {
+    border-radius: 0 0.2em 0.2em 0;
+    background-image: linear-gradient(to bottom, #eee0d3 0%, #eee0d3 40%, #bbaa9a 60%, #eee0d3 80%, #eee0d3 100%);
+    background-color: #eee0d3;
+    color: #000;
+}
+
+.autoradarbeam {
+    animation: spin 60s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(90)
+    }
+    to {
+        transform: rotate(450deg)
+    }
+}
+
+.target-blip {
+    position: absolute;
+    background-color: #0c0;
+    animation: pinged 10s linear infinite both;
+    margin: 0px;
+}
+
+@keyframes pinged {
+    from {
+        opacity: 0
+    }
+    1% {
+        opacity: 1
+    }
+    40% {
+        opacity: 0
+    }
+    to {
+        opacity: 0
+    }
+}
+
+@font-face {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), url('../fonts/arimo-v17-latin-regular.woff2') format('woff2');
+}

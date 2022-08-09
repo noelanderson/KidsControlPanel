@@ -1,0 +1,126 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 222px 580px 222px;
+    grid-template-rows: 10px 290px 290px 10px;
+    font-size: 10px;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.header {
+    grid-column: 1/4;
+    grid-row: 1;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer {
+    grid-column: 1/4;
+    grid-row: 4;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+    grid-column: 1/4;
+    grid-row: 2/4;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.centerPane {
+    grid-column: 2;
+    grid-row: 2/4;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.centerUpperPane {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.centerLowerPane {
+    grid-column: 2;
+    grid-row: 3;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.leftPane {
+    grid-column: 1;
+    grid-row: 2/4;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.leftUpperPane {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.leftLowerPane {
+    grid-column: 1;
+    grid-row: 3;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rightPane {
+    grid-column: 3;
+    grid-row: 2/4;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rightUpperPane {
+    grid-column: 3;
+    grid-row: 2;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.rightLowerPane {
+    grid-column: 3;
+    grid-row: 3;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body {
+    background-color: #232323;
+    border: 0px 0px 0px 0px;
+    border-style: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    overflow: hidden;
+}

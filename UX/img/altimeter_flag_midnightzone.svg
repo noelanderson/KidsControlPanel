@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 375 375" enable-background="new 0 0 375 375" xml:space="preserve" id="svg21">
+   <path id="window" style="fill:#0000c3;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 166.66,216.04001 c 14.26535,8.29083 28.77551,7.18508 41.68,0.04 L 233.43301,257.987 C 206.3729,275.30381 171.31428,275.1354 141.65,258.04 l 25.01,-42 z" />
+   <text id="alt_depth" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.5;stroke-miterlimit:10" transform="translate(268.0971,194.5012)" x="26.947266" y="0">
+      <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1" id="tspan851">DEPTH</tspan>
+   </text>
+   <g id="squid" transform="matrix(0.0878209,0.02062198,-0.02149434,0.09153596,109.64905,173.31678)">
+      <path style="fill:#ed7d33;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 750.88422,688.1184 c 0,0 49.50217,59.91772 82.82958,78.03282 32.65133,17.74762 71.401,22.00703 108.28903,26.51929 60.93627,7.45392 131.37907,20.17624 182.50377,-0.50893 -5.7987,-59.07151 -3.9554,-176.86638 -3.9554,-176.86638 L 971.65473,546.4028 Z" id="path862" />
+      <g id="g8" transform="translate(749.6513,242.30776)" style="fill:#e23f2c;fill-opacity:1;stroke:none;stroke-opacity:1">
+         <path fill="#ef4136" d="m 376.52203,550.96499 c 1.60623,-110.78503 0.57514,-141.64783 23.51096,-194.99239 22.54417,-25.20771 34.83672,-74.44771 36.81701,-124.5426 0,-0.12 0.08,-0.22 0.2,-0.26 25.98,-7.98 53.41,-12.79 78.12,-24.11 0.01,-0.01 0.03,-0.01 0.04,-0.02 35.39,-23.17 -16.64,-41.42 -36.28,-48.8 -0.01,0 -0.01,0 -0.02,-0.01 -12.55,-3.59 -25.09,-7.66 -37.92,-10.11 -0.02,0 -0.05,-0.01 -0.08,0 -5.77,0.69 -2.22,-18.09 -3.29,-22.6 0,-0.02 -0.01,-0.03 -0.01,-0.05 -1.15,-94.48 -57.25,-79.33 -105.99,-22.52 -0.08,0.1 -0.22,0.13 -0.33,0.08 C 318.53,97.44 306.5,89.84 292.86,86.27 274.53,82.09 224.5,66.98 222.02,96.41 v 0.03 c -0.26,13.3 12.47,20.44 20.6,29.04 12.1,11.26 24.31,22.4 36.29,33.79 1.77,1.67 -29.98036,20.97657 -44.65566,57.59436 C 189.51578,312.88948 176.42496,329.77449 99.975964,374.23802 28.177715,420.2385 6.2363453,416.89103 1.2329228,445.81064 44.93842,469.28773 212.76151,322.95845 212.76151,322.95845 c 0,0 58.30471,8.77627 -128.699009,200.88501 43.549249,19.88145 149.261219,-157.4118 190.798019,-162.34132 8.37746,74.59587 -44.33302,103.10907 -82.50899,188.86061 98.26202,-37.26412 83.75734,-150.10953 149.76934,-148.91411 20.96481,7.63604 2.25016,150.35398 34.40116,149.51635 z" id="path2" style="fill:#e23f2c;fill-opacity:1;stroke:none;stroke-opacity:1" />
+      </g>
+      <circle style="fill:#ffffff;fill-opacity:1" id="path1321" cx="1028.7915" cy="499.8978" r="45.138889" />
+      <circle fill="#1c75bc" cx="1029.6617" cy="500.52902" r="32.463104" id="circle10" style="fill:#00000f;fill-opacity:1;stroke-width:1.20905" />
+      <circle style="fill:#ffffff;fill-opacity:1" id="path1321-4" cx="1118.8843" cy="536.64355" r="45.138889" />
+      <circle fill="#1c75bc" cx="1119.0702" cy="537.06531" id="circle12" style="fill:#00000f;fill-opacity:1;stroke-width:1.20905" r="32.463104" />
+      <ellipse style="fill:#eb6136;fill-opacity:1;stroke:none" id="path864" cx="1066.6595" cy="391.3949" rx="20.00102" ry="17.778685" />
+      <ellipse style="fill:#eb6136;fill-opacity:1;stroke:none" id="path864-8" cx="1137.7743" cy="395.83957" rx="20.00102" ry="17.778685" />
+      <ellipse style="fill:#eb6136;fill-opacity:1;stroke:none" id="path864-9" cx="1109.9951" cy="448.06445" rx="20.00102" ry="17.778685" />
+      <ellipse style="fill:#eb5036;fill-opacity:1;stroke:none" id="path864-3" cx="1071.1042" cy="611.40613" rx="20.00102" ry="17.778685" />
+      <ellipse style="fill:#eb5036;fill-opacity:1;stroke:none;stroke-width:0.59375" id="path864-7" cx="1000.7534" cy="581.96021" rx="11.875606" ry="10.556094" />
+   </g>
+</svg>

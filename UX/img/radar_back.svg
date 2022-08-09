@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 375 375" style="enable-background:new 0 0 375 375;" xml:space="preserve">
+	<filter filterUnits="objectBoundingBox" id="AI_Shadow_1">
+		<feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="5"></feGaussianBlur>
+		<feOffset dx="0" dy="0" in="blur" result="offsetBlurredAlpha"></feOffset>
+		<feMerge>
+			<feMergeNode in="offsetBlurredAlpha"></feMergeNode>
+			<feMergeNode in="SourceGraphic"></feMergeNode>
+		</feMerge>
+	</filter>
+	<g id="radar_back" transform="translate(-2.1233945,-0.4691599)">
+
+		<circle id="path4138" style="fill-rule:evenodd;clip-rule:evenodd;fill:#004000;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" cx="189.62" cy="187.97" r="160"/>
+
+		<circle id="circle4148" style="fill-rule:evenodd;clip-rule:evenodd;fill:#004000;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" cx="189.62" cy="187.97" r="120"/>
+
+		<circle id="circle4156" style="fill-rule:evenodd;clip-rule:evenodd;fill:#004000;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" cx="189.62" cy="187.97" r="80"/>
+
+		<circle id="circle4164" style="fill-rule:evenodd;clip-rule:evenodd;fill:#004000;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" cx="189.62" cy="187.97" r="40"/>
+		<path id="path4336" style="fill:none;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" d="M189.62,347.97l0-320"/>
+		<path id="path4318" style="fill:none;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" d="M109.62,49.41l160,277.13" />
+		<path id="path4300" style="fill:none;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" d="M51.06,107.97l277.13,160" />
+		<path id="path4282" style="fill:none;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" d="M29.62,187.97h320"/>
+		<path id="path4264" style="fill:none;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" d="M328.19,107.97l-277.13,160
+			"/>
+		<path id="path4246" style="fill:none;stroke:#00FF00;stroke-linecap:round;stroke-linejoin:round;" d="M269.62,49.41l-160,277.13" />
+	</g>
+</svg>

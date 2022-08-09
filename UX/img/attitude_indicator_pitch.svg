@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 375 570" enable-background="new 0 0 375 570" xml:space="preserve" id="svg151" width="375" height="570">
+  <defs id="defs124" />
+
+  <metadata id="metadata157">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+
+  <g id="sky_div">
+    <rect style="fill:#558ebb;fill-opacity:1;stroke-width:1" id="rect1206-9" width="205" height="285" x="85" y="0" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="15" x2="167" y2="15" id="line52" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="30" x2="175" y2="30" id="line54" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text30-7" x="213" y="20">90</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text32-7" x="150" y="20">90</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="45" x2="158" y2="45" id="line4" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="60" x2="175" y2="60" id="line6" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="75" x2="167" y2="75" id="line8" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="90" x2="175" y2="90" id="line10" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text26" x="222" y="45">80</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text28" x="140" y="45">80</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text30" x="213" y="75">70</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text32" x="150" y="75">70</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="105" x2="158" y2="105" id="line16" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="120" x2="175" y2="120" id="line18" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="135" x2="167" y2="135" id="line20" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="150" x2="175" y2="150" id="line22" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text42" x="222" y="110">60</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text44" x="140" y="110">60</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text46" x="213" y="140">50</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text48" x="150" y="140">50</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="165" x2="158" y2="165" id="line28" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="180" x2="175" y2="180" id="line30" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="195" x2="167" y2="195" id="line32" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="210" x2="175" y2="210" id="line34" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text58" x="222" y="170">40</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text60" x="140" y="170">40</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text62" x="213" y="200">30</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text64" x="150" y="200">30</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="225" x2="158" y2="225" id="line40" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="240" x2="175" y2="240" id="line42" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="255" x2="167" y2="255" id="line44" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="270" x2="175" y2="270" id="line46" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text74" x="222" y="230">20</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text76" x="140" y="230">20</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text78" x="213" y="260">10</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text80" x="150" y="260">10</text>
+
+  </g>
+  <g id="ground_div">
+    <rect style="fill:#3d2618;fill-opacity:1;stroke-width:1" id="rect1206" width="205" height="285" x="85" y="285" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="300" x2="175" y2="300" id="line60" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="315" x2="167" y2="315" id="line62" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="330" x2="175" y2="330" id="line64" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="345" x2="158" y2="345" id="line66" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text92" x="213" y="320">10</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text94" x="150" y="320">10</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text96" x="222" y="350">20</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text98" x="140" y="350">20</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="360" x2="175" y2="360" id="line72" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="375" x2="167" y2="375" id="line74" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="390" x2="175" y2="390" id="line76" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="405" x2="158" y2="405" id="line78" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text108" x="213" y="380">30</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text110" x="150" y="380">30</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text112" x="222" y="410">40</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text114" x="140" y="410">40</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="420" x2="175" y2="420" id="line84" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="435" x2="167" y2="435" id="line86" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="450" x2="175" y2="450" id="line88" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="465" x2="158" y2="465" id="line90" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text124" x="213" y="440">50</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text126" x="150" y="440">50</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text128" x="222" y="470">60</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text130" x="140" y="470">60</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="480" x2="175" y2="480" id="line96" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="495" x2="167" y2="495" id="line98" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="510" x2="175" y2="510" id="line100" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="217" y1="525" x2="158" y2="525" id="line102" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text140" x="213" y="500">70</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text142" x="150" y="500">70</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text144" x="222" y="530">80</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text146" x="140" y="530">80</text>
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="200" y1="540" x2="175" y2="540" id="line108" />
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="208" y1="555" x2="167" y2="555" id="line110" />
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text113" x="213" y="560">90</text>
+    <text fill="#ffffff" font-family="Arimo, monospace" font-size="12px" id="text115" x="150" y="560">90</text>
+  </g>
+
+  <g id="horizon_line">
+    <line fill="none" stroke="#ffffff" stroke-width="2" x1="85" y1="285" x2="290" y2="285" id="line118" />
+  </g>
+</svg>

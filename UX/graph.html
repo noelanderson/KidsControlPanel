@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .chart {
+            display: table;
+            table-layout: fixed;
+            width: 80%;
+            height: 600px;
+            margin: 0 auto;
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1) 2%, rgba(0, 0, 0, 0) 2%);
+            background-size: 100% 100px;
+            background-position: left bottom;
+        }
+
+        .chart li {
+            position: relative;
+            display: table-cell;
+            vertical-align: bottom;
+        }
+
+        .b1 {
+            margin: 0 1em;
+            border-radius: 10px 10px 0 0;
+            display: block;
+            background: currentColor;
+            transform-origin: bottom;
+            animation: double 10000ms ease-in-out infinite alternate;
+        }
+        @keyframes double{
+            0% { transform: scaleY(1); }
+            50% { transform: scaleY(2) }
+            100% { transform: scaleY(1); }
+        }
+
+        .b2 {
+            margin: 0 1em;
+            border-radius: 10px 10px 0 0;
+            display: block;
+            background: currentColor;
+            transform-origin: bottom;
+            animation: double_shrink 25000ms linear infinite alternate;
+        }
+       @keyframes double_shrink{
+            0% { transform: scaleY(1); }
+            33% { transform: scaleY(2) }
+            66% { transform: scaleY(0.5) }
+            100% { transform: scaleY(1); }
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="chart">
+        <li>
+            <span class="b2" style="height:25%; color: #e7663f"></span>
+        </li>
+        <li>
+            <span class="b1" style="height:30%; color: #80260b"></span>
+        </li>
+        <li>
+            <span class="b2" style="height:50%; color: green"></span>
+        </li>
+        <li>
+            <span class="b1"style="height:15%; color: blue"></span>
+        </li>
+        <li>
+            <span class="b1" style="height:45%; color: rgb(9, 9, 131)"></span>
+        </li>
+    </ul>
+</body>
+
+</html>

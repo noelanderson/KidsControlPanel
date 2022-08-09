@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style id="compiled-css" type="text/css">
+         :root {
+            --blip: 20px;
+            --diameter: 580px;
+            --spintime: 10s;
+            --radius: calc(var(--diameter) / 2);
+            --r1: calc(var(--radius) * 0.25);
+            --r2: calc(var(--radius) * 0.50);
+            --r3: calc(var(--radius) * 0.75);
+            --bw: calc(var(--radius) / 25);
+        }
+        
+        #radar {
+            position: relative;
+            width: var(--diameter);
+            height: var(--diameter);
+            margin: 10px auto;
+            background-color: #020;
+            background-image: linear-gradient(to right, transparent calc(var(--radius) - 1px), #0c0 calc(var(--radius) - 1px), #0c0 calc(var(--radius) + 1px), transparent calc(var(--radius) + 1px)), linear-gradient(to bottom, transparent calc(var(--radius) - 1px), #0c0 calc(var(--radius) - 1px), #0c0 calc(var(--radius) + 1px), transparent calc(var(--radius) + 1px)), radial-gradient(circle at center, #0c0 4px, transparent 4px, transparent calc(var(--r1) - 2px), #0c0 calc(var(--r1) - 2px), #0c0 var(--r1), transparent var(--r1), transparent calc(var(--r2) - 2px), #0c0 calc(var(--r2) - 2px), #0c0 var(--r2), transparent var(--r2), transparent calc(var(--r3) - 2px), #0c0 calc(var(--r3) - 2px), #0c0 var(--r3), transparent var(--r3), transparent calc(var(--radius) - 2px), #0c0 calc(var(--radius) - 2px));
+            border-radius: 50%;
+        }
+        
+        #radar>* {
+            position: absolute
+        }
+        
+        .beam {
+            left: 50%;
+            top: 50%;
+            border-style: solid;
+            border-width: var(--bw) var(--radius) var(--bw) 0;
+            border-color: transparent;
+            border-right-color: #0c0;
+            margin-top: calc(-0px - var(--bw));
+            transform-origin: 0 50%;
+            animation: spin var(--spintime) linear infinite;
+        }
+        
+        #beam-75 {
+            opacity: 0.75;
+            animation-delay: calc(var(--spintime) * .0125)
+        }
+        
+        #beam-50 {
+            opacity: 0.50;
+            animation-delay: calc(var(--spintime) * .025)
+        }
+        
+        #beam-25 {
+            opacity: 0.25;
+            animation-delay: calc(var(--spintime) * .0375)
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0)
+            }
+            to {
+                transform: rotate(360deg)
+            }
+        }
+        
+        .target-blip {
+            width: var(--blip);
+            height: var(--blip);
+            margin: calc(-0px - (var(--blip) / 2));
+            background-color: #0c0;
+            border-radius: calc(var(--blip) / 2);
+            animation: pinged var(--spintime) linear infinite both;
+        }
+        
+        @keyframes pinged {
+            from {
+                opacity: 0
+            }
+            1% {
+                opacity: 1
+            }
+            40% {
+                opacity: 0
+            }
+            to {
+                opacity: 0
+            }
+        }
+        
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body background="octotile.png" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0">
+    <div id="radar">
+        <div class="beam" id="beam"></div>
+        <div class="beam" id="beam-75"></div>
+        <div class="beam" id="beam-50"></div>
+        <div class="beam" id="beam-25"></div>
+    </div>
+
+    <script type="text/javascript">
+        var rs = getComputedStyle(document.querySelector(':root'));
+        var radius = parseInt(rs.getPropertyValue('--diameter')) / 2;
+        var blipsize = parseInt(rs.getPropertyValue('--blip'));
+        var spintime = parseInt(rs.getPropertyValue('--spintime'));
+        var radar = document.getElementById('radar')
+
+        for (var i = 0; i < 10; i++) {
+            var blip = document.createElement('div');
+            blip.className = "target-blip";
+            var distanceFromCenter = Math.random() * radius - blipsize / 2;
+            var angle = Math.random() * Math.PI * 2;
+            blip.style.left = (radius + Math.cos(angle) * distanceFromCenter) + "px";
+            blip.style.top = (radius + Math.sin(angle) * distanceFromCenter) + "px";
+            blip.style.animationDelay = angle / Math.PI / 2 * spintime + "s";
+            //radar.appendChild(blip);
+        }
+    </script>
+</body>
+
+</html>
