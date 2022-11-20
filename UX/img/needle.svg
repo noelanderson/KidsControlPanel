@@ -1,12 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 375 375" enable-background="new 0 0 375 375" xml:space="preserve">
-	<g id="needle">
-		<polygon fill="#FFFFFF" stroke="#B2B2B2" stroke-width="0.5" stroke-miterlimit="10" points="62.9,183.84 54.54,187.42 62.88,191 
-			170.79,191 170.79,183.84 		"/>
-		<path fill="#232323" stroke="#353535" stroke-width="0.5" stroke-miterlimit="10" d="M225.5,183.84c-3.56-3.56-8.92,0-13.06,0
-			c-0.79,0-3.15,0-3.15,0h-11.97c-1.51-4.27-5.57-7.34-10.36-7.34c-4.79,0-8.85,3.07-10.36,7.34h-5.8V191h5.75
-			c1.46,4.35,5.57,7.5,10.42,7.5c4.85,0,8.96-3.14,10.42-7.5h12.04c0,0,2.31,0,3.08,0c3.87,0,9.46,3.54,13,0
-			C227.58,188.92,227.7,186.04,225.5,183.84z"/>
-	</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 375 375" version="1.1" viewBox="0 0 375 375" xmlns="http://www.w3.org/2000/svg">
+ <g transform="rotate(90,187.5,187.5)" stroke-miterlimit="10" stroke-width=".5">
+  <polygon points="170.79 191 170.79 183.84 62.9 183.84 54.54 187.42 62.88 191" fill="#fff" stroke="#b2b2b2"/>
+  <path d="m225.5 183.84c-3.56-3.56-8.92 0-13.06 0h-15.12c-1.51-4.27-5.57-7.34-10.36-7.34s-8.85 3.07-10.36 7.34h-5.8v7.16h5.75c1.46 4.35 5.57 7.5 10.42 7.5s8.96-3.14 10.42-7.5h15.12c3.87 0 9.46 3.54 13 0 2.07-2.08 2.19-4.96-0.01-7.16z" fill="#232323" stroke="#353535"/>
+ </g>
 </svg>

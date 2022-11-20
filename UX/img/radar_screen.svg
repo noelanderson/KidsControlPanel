@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 375 375" version="1.1" viewBox="0 0 375 375" xmlns="http://www.w3.org/2000/svg">
+ <filter>
+  <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="5"/>
+  <feOffset dx="0" dy="0" in="blur" result="offsetBlurredAlpha"/>
+  <feMerge>
+   <feMergeNode in="offsetBlurredAlpha"/>
+   <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+ </filter>
+ <g transform="translate(-2.1234 -.46916)" stroke="#0f0" stroke-linecap="round" stroke-linejoin="round">
+  <g clip-rule="evenodd" fill="#004000" fill-rule="evenodd">
+   <circle cx="189.62" cy="187.97" r="160"/>
+   <circle cx="189.62" cy="187.97" r="120"/>
+   <circle cx="189.62" cy="187.97" r="80"/>
+   <circle cx="189.62" cy="187.97" r="40"/>
+  </g>
+  <g fill="none">
+   <path d="m189.62 347.97v-320"/>
+   <path d="m109.62 49.41 160 277.13"/>
+   <path d="m51.06 107.97 277.13 160"/>
+   <path d="m29.62 187.97h320"/>
+   <path d="m328.19 107.97-277.13 160"/>
+   <path d="m269.62 49.41-160 277.13"/>
+  </g>
+ </g>
+</svg>

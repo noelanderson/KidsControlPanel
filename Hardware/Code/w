@@ -1,0 +1,18 @@
+
+
+def test (value: int) -> bool:
+    result = False
+    if not 0 <= value <= 4095:
+        result = True
+    print (value, result)
+
+
+test(-4240)
+test(-1)
+test(0)
+test(1)
+test(3553)
+test(4094)
+test(4095)
+test(4096)
+test(409335)

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1"
-	xmlns="http://www.w3.org/2000/svg"
-	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 375 375" enable-background="new 0 0 375 375" xml:space="preserve">
-	<g id="horizon_mask">
-		<path id="mask" fill="#232323"  stroke-miterlimit="10" d="M0,0v375h375V0H0z M187.5,337.5
-		c-82.84,0-150-67.16-150-150s67.16-150,150-150s150,67.16,150,150S270.34,337.5,187.5,337.5z"/>
-	</g>
-</svg>

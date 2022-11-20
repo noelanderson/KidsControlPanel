@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 375 375" version="1.1" viewBox="0 0 375 375" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="a" x1="187.64" x2="187.64" y1="337.1" y2="37.567" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#3d2618" offset=".4999"/>
+   <stop stop-color="#0081d4" offset=".5001"/>
+  </linearGradient>
+ </defs>
+ <filter id="b">
+  <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="5"/>
+  <feOffset dx="0" dy="0" in="blur" result="offsetBlurredAlpha"/>
+  <feMerge>
+   <feMergeNode in="offsetBlurredAlpha"/>
+   <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+ </filter>
+ <path d="m187.64 37.57c-82.71 0-149.77 67.05-149.77 149.77s67.05 149.76 149.77 149.76 149.77-67.05 149.77-149.77-67.06-149.76-149.77-149.76zm0 250.1c-55.41 0-100.33-44.92-100.33-100.33 0-55.42 44.92-100.34 100.33-100.34s100.33 44.92 100.33 100.33c0 55.42-44.92 100.34-100.33 100.34z" fill="url(#a)" filter="url(#b)"/>
+ <g fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="3">
+  <line x1="37.64" x2="87.31" y1="187.5" y2="187.5"/>
+  <line x1="287.72" x2="337.41" y1="187.5" y2="187.5"/>
+  <line x1="65.39" x2="99.05" y1="118.75" y2="139.08"/>
+  <line x1="275.72" x2="310.56" y1="139.08" y2="118.75"/>
+  <line x1="136.39" x2="116.39" y1="100.92" y2="66.42"/>
+  <line x1="239.06" x2="259.72" y1="100.92" y2="66.42"/>
+ </g>
+ <g fill="#fff">
+  <polygon points="113.56 118.75 106.06 104.58 99.05 111.42"/>
+  <polygon points="275.72 111.67 261.06 118.75 268.22 104.58"/>
+  <polygon transform="matrix(.73177 0 0 .67194 50.31 28.243)" points="187.56 86.09 172.89 47.25 202.22 47.25"/>
+ </g>
+</svg>

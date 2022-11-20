@@ -10,7 +10,7 @@ div.instrument {
     align-items: center;
 }
 
-div.instrument .box {
+div.instrument .dial {
     margin: 0px;
     position: absolute;
     top: 0;
@@ -57,10 +57,10 @@ div.instrument .box {
 
 @keyframes spin {
     from {
-        transform: rotate(90)
+        transform: rotate(0)
     }
     to {
-        transform: rotate(450deg)
+        transform: rotate(360deg)
     }
 }
 
@@ -75,7 +75,7 @@ div.instrument .box {
     from {
         opacity: 0
     }
-    1% {
+    5% {
         opacity: 1
     }
     40% {

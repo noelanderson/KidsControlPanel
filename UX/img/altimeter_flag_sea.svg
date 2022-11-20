@@ -1,27 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-      xmlns:dc="http://purl.org/dc/elements/1.1/"
-      xmlns:cc="http://creativecommons.org/ns#"
-      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-      xmlns:svg="http://www.w3.org/2000/svg"
-      xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 375 375" enable-background="new 0 0 375 375" xml:space="preserve" id="svg21">
-       <path id="window" style="fill:#0000c3;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 166.66,216.04001 c 14.26535,8.29083 28.77551,7.18508 41.68,0.04 L 233.43301,257.987 C 206.3729,275.30381 171.31428,275.1354 141.65,258.04 l 25.01,-42 z" />
-      <text id="alt_depth" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:Arial;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.5;stroke-miterlimit:10" transform="translate(268.0971,194.5012)" x="26.947266" y="0">
-            <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Arial;-inkscape-font-specification:Arial;text-align:end;text-anchor:end;fill:#ffffff;fill-opacity:1" id="tspan851">DEPTH</tspan>
-      </text>
-      <g id="fish" transform="matrix(0.30937522,0.03804909,-0.03804909,0.30937522,35.335518,88.737024)">
-            <g id="g1307">
-                  <path style="fill:#e23f2c" d="m 651.15873,468.00476 c 0,8.5 -8.8,14.3 -16.5,10.6 -12.9,-6.1 -21.7,-19.3 -21.7,-34.5 0,-15.2 8.9,-28.3 21.7,-34.5 7.6,-3.7 16.5,2.2 16.5,10.6 z" id="path139" />
-                  <path style="fill:#e23f2c" d="m 605.95873,464.20476 v 21.3 c 0,2.1 -1.7,3.8 -3.8,3.8 h -30.1 c -3.7,0 -5.2,-4.7 -2.2,-6.9 l 30.1,-21.3 c 2.6,-1.8 6,0 6,3.1 z" id="path141" />
-                  <path style="fill:#e23f2c" d="m 548.85873,502.90476 v -22.7 c 0,-6.1 -5,-11.1 -11.1,-11.1 h -30.4 c -6.1,0 -11.1,5 -11.1,11.1 v 18 c 0,5.5 4,10.1 9.4,10.9 l 30.4,4.8 c 6.8,1 12.8,-4.2 12.8,-11 z" id="path143" />
-                  <path style="fill:#e23f2c;fill-opacity:1" d="m 482.85873,396.90476 c 0,-3.9 2,-7.5 5.4,-9.4 12.8,-7.6 27.7,-13.3 43.5,-13.3 22.4,0 42.9,11.4 58.4,23.6 2.6,2.1 4.1,5.2 4.1,8.6 v 3.4 c 0,8.7 -9.5,13.9 -16.8,9.3 -13.3,-8.3 -28.9,-14.6 -45.7,-14.6 -11.8,0 -23,3.1 -33.3,7.9 -7.3,3.4 -15.6,-2 -15.6,-10 z" id="path145" />
-                  <path style="fill:#f49967" d="m 446.75873,444.20476 c 0,0 22.2,-30.2 53.9,-45.2 10.3,12.2 16.5,28 16.5,45.2 0,17.2 -6.2,33 -16.5,45.2 -31.6,-15 -53.9,-45.2 -53.9,-45.2 z" id="path147" />
-                  <g id="g153" transform="translate(355.15873,-50.595238)">
-                        <circle style="fill:#ffffff" cx="136.8" cy="490.89999" r="10.8" id="circle149" />
-                        <circle cx="136.8" cy="490.89999" r="4.9000001" id="circle151" />
-                  </g>
-                  <path style="fill:#ed7d33" d="m 500.65873,398.90476 c 10.5,-5 22,-8.3 34.1,-8.3 48.6,0 88.1,53.5 88.1,53.5 0,0 -39.4,53.5 -88.1,53.5 -12.1,0 -23.6,-3.3 -34.1,-8.3 10.3,-12.2 16.5,-28 16.5,-45.2 0,-17.2 -6.2,-32.9 -16.5,-45.2 z" id="path155" />
-                  <path style="fill:#e23f2c" d="m 540.75873,452.20476 c 4.2,1.6 11.1,3.2 15.6,4.1 1.4,0.3 2.7,-0.8 2.7,-2.2 v -17.8 c 0,-1.4 -1.3,-2.5 -2.7,-2.2 -4.5,0.9 -11.4,2.5 -15.6,4.1 -8.9,3.4 -8.2,7 -8.2,7 0,0 -0.7,3.6 8.2,7 z" id="path157" />
-            </g>
-      </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 375 375" version="1.1" viewBox="0 0 375 375" xmlns="http://www.w3.org/2000/svg">
+ <path d="m166.66 216.04c14.265 8.2908 28.776 7.1851 41.68 0.04l25.093 41.907c-27.06 17.317-62.119 17.148-91.783 0.053l25.01-42z" fill="#0000c3"/>
+ <text transform="translate(268.1 194.5)" x="26.947266" fill="#000000" font-family="Arial" font-size="16px" stroke="#ffffff" stroke-miterlimit="10" stroke-width=".5"><tspan fill="#ffffff" font-family="Arial" font-size="16px" text-align="end" text-anchor="end">DEPTH</tspan></text>
+ <g transform="matrix(.30938 .038049 -.038049 .30938 35.336 88.737)">
+  <g fill="#e23f2c">
+   <path d="m651.16 468c0 8.5-8.8 14.3-16.5 10.6-12.9-6.1-21.7-19.3-21.7-34.5s8.9-28.3 21.7-34.5c7.6-3.7 16.5 2.2 16.5 10.6z"/>
+   <path d="m605.96 464.2v21.3c0 2.1-1.7 3.8-3.8 3.8h-30.1c-3.7 0-5.2-4.7-2.2-6.9l30.1-21.3c2.6-1.8 6 0 6 3.1z"/>
+   <path d="m548.86 502.9v-22.7c0-6.1-5-11.1-11.1-11.1h-30.4c-6.1 0-11.1 5-11.1 11.1v18c0 5.5 4 10.1 9.4 10.9l30.4 4.8c6.8 1 12.8-4.2 12.8-11z"/>
+   <path d="m482.86 396.9c0-3.9 2-7.5 5.4-9.4 12.8-7.6 27.7-13.3 43.5-13.3 22.4 0 42.9 11.4 58.4 23.6 2.6 2.1 4.1 5.2 4.1 8.6v3.4c0 8.7-9.5 13.9-16.8 9.3-13.3-8.3-28.9-14.6-45.7-14.6-11.8 0-23 3.1-33.3 7.9-7.3 3.4-15.6-2-15.6-10z"/>
+  </g>
+  <path d="m446.76 444.2s22.2-30.2 53.9-45.2c10.3 12.2 16.5 28 16.5 45.2s-6.2 33-16.5 45.2c-31.6-15-53.9-45.2-53.9-45.2z" fill="#f49967"/>
+  <g transform="translate(355.16 -50.595)">
+   <circle cx="136.8" cy="490.9" r="10.8" fill="#fff"/>
+   <circle cx="136.8" cy="490.9" r="4.9"/>
+  </g>
+  <path d="m500.66 398.9c10.5-5 22-8.3 34.1-8.3 48.6 0 88.1 53.5 88.1 53.5s-39.4 53.5-88.1 53.5c-12.1 0-23.6-3.3-34.1-8.3 10.3-12.2 16.5-28 16.5-45.2s-6.2-32.9-16.5-45.2z" fill="#ed7d33"/>
+  <path d="m540.76 452.2c4.2 1.6 11.1 3.2 15.6 4.1 1.4 0.3 2.7-0.8 2.7-2.2v-17.8c0-1.4-1.3-2.5-2.7-2.2-4.5 0.9-11.4 2.5-15.6 4.1-8.9 3.4-8.2 7-8.2 7s-0.7 3.6 8.2 7z" fill="#e23f2c"/>
+ </g>
 </svg>

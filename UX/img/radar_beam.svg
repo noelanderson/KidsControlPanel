@@ -1,31 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1"
-	xmlns="http://www.w3.org/2000/svg"
-	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 375 375" style="enable-background:new 0 0 375 375;" xml:space="preserve">
-	<g id="radar_beam" transform="rotate(11.7,590.36673,1897.3041)">
-
-		<ellipse id="circle4170" transform="matrix(0.2028 -0.9792 0.9792 0.2028 -418.5767 95.0416)" style="fill-rule:evenodd;clip-rule:evenodd;fill:#004000;stroke:#008000;stroke-linecap:round;stroke-linejoin:round;" cx="-150.92" cy="304.59" rx="10" ry="10"/>
-		<path id="path4617" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.5647;" d="M-200.36,152.42
-			l49.44,152.17l-33.27-156.5L-200.36,152.42z"/>
-		<path id="path4613" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.4392;" d="M-230.92,166.03l80,138.56
-			L-216,158.42L-230.92,166.03z"/>
-		<path id="path4615" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.502;" d="M-216,158.42l65.08,146.17
-			l-49.44-152.17L-216,158.42z"/>
-		<path id="path4611" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.3765;" d="M-244.96,175.15
-			l94.05,129.44l-80-138.56L-244.96,175.15z"/>
-		<path id="path4609" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.3137;" d="M-150.92,304.59
-			l-107.06-118.9l13.02-10.54L-150.92,304.59z"/>
-		<path id="path4607" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.251;" d="M-269.82,197.53
-			l118.9,107.06l-107.06-118.9L-269.82,197.53z"/>
-		<path id="path4603" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.1255;" d="M-289.48,224.59l138.56,80
-			l-129.44-94.05L-289.48,224.59z"/>
-		<path id="path4605" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.1882;" d="M-280.36,210.55
-			l129.44,94.05l-118.9-107.06L-280.36,210.55z"/>
-		<path id="path4601" style="fill-rule:evenodd;clip-rule:evenodd;fill:#00FF00;fill-opacity:0.0627;" d="M-150.92,304.59
-			l-146.17-65.08l7.6-14.92L-150.92,304.59z"/>
-		<path id="path4330" style="fill:none;stroke:#008000;stroke-linecap:round;stroke-linejoin:round;" d="M-184.18,148.09
-			l31.19,146.73"/>
-		<path id="path4619" style="fill:none;stroke:#00FF00;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;" d="
-			M-184.18,148.09l33.27,156.5"/>
-	</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 375 375" version="1.1" viewBox="0 0 375 375" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="a" x1="319.3" x2="274.95" y1="-186.75" y2="-122.02" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#0f0" offset="0"/>
+   <stop stop-color="#0f0" stop-opacity=".25686" offset="1"/>
+  </linearGradient>
+  <filter id="b" x="-.0036119" y="-.0036119" width="1.0072" height="1.0072" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.48158904"/>
+  </filter>
+ </defs>
+ <filter>
+  <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="5"/>
+  <feOffset dx="0" dy="0" in="blur" result="offsetBlurredAlpha"/>
+  <feMerge>
+   <feMergeNode in="offsetBlurredAlpha"/>
+   <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+ </filter>
+ <path transform="scale(1,-1)" d="m348.35-187.5a160 160 0 01-80.191 138.67l-79.809-138.67z" clip-rule="evenodd" fill="url(#a)" fill-rule="evenodd" filter="url(#b)" opacity=".62344" style="mix-blend-mode:normal"/>
+ <g transform="rotate(90 406.83 34.966)" stroke-linecap="round" stroke-linejoin="round">
+  <circle transform="rotate(-66.599)" cx="-10.451" cy="613.99" r="9.9998" clip-rule="evenodd" fill="#004000" fill-rule="evenodd" stroke="#008000" stroke-width=".99998"/>
+  <path d="m558.52 93.452.84253 160" fill="none" stroke="#0f0" stroke-width="2"/>
+ </g>
 </svg>

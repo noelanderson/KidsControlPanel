@@ -1,254 +1,353 @@
+# SPDX-FileCopyrightText: Copyright (c) 2022 Noel Anderson
+#
+# SPDX-License-Identifier: MIT
+# pylint: disable=line-too-long
+
+"""
+`AS5600`
+================================================================================
+CircuitPython library for connecting an AMS AS5600 12-bit on-axis magnetic rotary position sensor
+* Author(s): Noel Anderson
+
+Implementation Notes
+--------------------
+**Hardware:**
+
+* `AS5600 <https://ams.com/as5600>`
+
+**Software and Dependencies:**
+
+* Adafruit CircuitPython firmware for the supported boards: https://github.com/adafruit/circuitpython/releases
+* Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
+"""
+
 from micropython import const
 import adafruit_bus_device.i2c_device as i2c_device
 
+# Register map & bit positions
+
 _AS5600_DEFAULT_I2C_ADDR = const(0x36)
-_AS5600_REG_ZMCO = const(0x00)
-_AS5600_REG_ZPOS_HI = const(0x01)
-_AS5600_REG_ZPOS_LO = const(0x02)
-_AS5600_REG_MPOS_HI = const(0x03)
-_AS5600_REG_MPOS_LO = const(0x04)
-_AS5600_REG_MANG_HI = const(0x05)
-_AS5600_REG_MANG_LO = const(0x06)
-_AS5600_REG_CONF_HI = const(0x07)
-_AS5600_REG_CONF_LO = const(0x08)
-_AS5600_REG_RAW_ANGLE_HI = const(0x0C)
-_AS5600_REG_RAW_ANGLE_LO = const(0x0D)
-_AS5600_REG_ANGLE_HI = const(0x0E)
-_AS5600_REG_ANGLE_LO = const(0x0F)
-_AS5600_REG_STATUS = const(0x0B)
-_AS5600_REG_SAGC = const(0x1A)
-_AS5600_REG_MAGNITUDE_HI = const(0x1B)
-_AS5600_REG_MAGNITUDE_LO = const(0x1C)
-_AS5600_REG_BURN = const(0xFF)
+_REGISTER_ZMCO = const(0x00) # R
+_REGISTER_ZPOS_HI = const(0x01) # R/W/P
+_REGISTER_ZPOS_LO = const(0x02) # R/W/P
+_REGISTER_MPOS_HI = const(0x03) # R/W/P
+_REGISTER_MPOS_LO = const(0x04) # R/W/P
+_REGISTER_MANG_HI = const(0x05) # R/W/P
+_REGISTER_MANG_LO = const(0x06) # R/W/P
+
+#---------------------------------------------------------------#
+#   7   |   6   |   5   |   4   |   3   |   2   |   1   |   0   |
+#-------+-------+-------+-------+-------+-------+-------+-------|
+#       |       |   WD  |          FTH          |       SF      |
+#---------------------------------------------------------------#
+_REGISTER_CONF_HI = const(0x07) # R/W/P
+_BIT_SF = const(0)
+_BIT_FTH = const(2)
+_BIT_WD = const(5)
+
+#---------------------------------------------------------------#
+#   7   |   6   |   5   |   4   |   3   |   2   |   1   |   0   |
+#-------+-------+-------+-------+-------+-------+-------+-------|
+#      PWMF     |     OUTS      |     HYST      |      PM       |
+#---------------------------------------------------------------#
+_REGISTER_CONF_LO = const(0x08) # R/W/P
+_BIT_PM = const(0)
+_BIT_HYST = const(2)
+_BIT_OUTS = const(4)
+_BIT_PWMF = const(6)
+
+_REGISTER_RAW_ANGLE_HI = const(0x0C) # R
+_REGISTER_RAW_ANGLE_LO = const(0x0D) # R
+_REGISTER_ANGLE_HI = const(0x0E) # R
+_REGISTER_ANGLE_LO = const(0x0F) # R
+
+#---------------------------------------------------------------#
+#   7   |   6   |   5   |   4   |   3   |   2   |   1   |   0   |
+#-------+-------+-------+-------+-------+-------+-------+-------|
+#       |       |   MD  |   ML  |   MH  |       |       |       |
+#---------------------------------------------------------------#
+_REGISTER_STATUS = const(0x0B)        # R
+_STATUS_MH = const(0b00001000)
+_STATUS_ML = const(0b00010000)
+_STATUS_MD = const(0b00100000)
+_STATUS_MASK = const(0b00111000)
+
+_REGISTER_AGC = const(0x1A) # R
+_REGISTER_MAGNITUDE_HI = const(0x1B) # R
+_REGISTER_MAGNITUDE_LO = const(0x1C) # R
+_REGISTER_BURN = const(0xFF) # W
+
+# Commands
 
 _BURN_ANGLE_COMMAND = const(0x80)
 _BURN_SETTINGS_COMMAND = const(0x40)
 
-_POWER_MODE_MASK =    const(0b11111100)
-_HYSTERESIS_MASK =    const(0b11110011)
-_OUTPUT_STAGE_MASK =  const(0b11001111)
-_PWM_FREQUENCY_MASK = const(0b00111111)
-_SLOW_FILTER_MASK = const(0b11111100)
-_FAST_FILTER_MASK = const(0b11100011)
-_WATCH_DOG_MASK = const(0b11011111)
+_1_BIT = const(0b00000001)
+_2_BITS = const(0b00000011)
+_3_BITS = const(0b00000111)
+
 
 # User-facing constants:
-POWER_MODE_NOM = const(0b00000000)
-POWER_MODE_LPM1 = const(0b00000000)
-POWER_MODE_LPM2 = const(0b00000010)
-POWER_MODE_LPM3 = const(0b00000011)
 
-HYSTERESIS_OFF = const(0b00000000)
-HYSTERESIS_1LSB = const(0b00000100)
-HYSTERESIS_2LSB = const(0b00001000)
-HYSTERESIS_3LSB = const(0b00001100)
+POWER_MODE_NOM = const(0)
+POWER_MODE_LPM1 = const(1)
+POWER_MODE_LPM2 = const(2)
+POWER_MODE_LPM3 = const(3)
 
-OUTPUT_STAGE_ANALOG_FULL = const(0b00000000)
-OUTPUT_STAGE_ANALOG_REDUCED = const(0b00010000)
-OUTPUT_STAGE_DIGITAL_PWM = const(0b00100000)
+HYSTERESIS_OFF = const(0)
+HYSTERESIS_1LSB = const(1)
+HYSTERESIS_2LSB = const(2)
+HYSTERESIS_3LSB = const(3)
 
-PWM_FREQUENCY_115HZ = const(0b00000000)
-PWM_FREQUENCY_230HZ = const(0b01000000)
-PWM_FREQUENCY_460HZ = const(0b10000000)
-PWM_FREQUENCY_920HZ = const(0b11000000)
+OUTPUT_STAGE_ANALOG_FULL = const(0)
+OUTPUT_STAGE_ANALOG_REDUCED = const(1)
+OUTPUT_STAGE_DIGITAL_PWM = const(2)
 
-SLOW_FILTER_16X = const(0b00000000)
-SLOW_FILTER_8X = const(0b00000000)
-SLOW_FILTER_4X = const(0b00000010)
-SLOW_FILTER_2X = const(0b00000011)
+PWM_FREQUENCY_115HZ = const(0)
+PWM_FREQUENCY_230HZ = const(1)
+PWM_FREQUENCY_460HZ = const(2)
+PWM_FREQUENCY_920HZ = const(3)
 
-FAST_FILTER_THRESHOLD_SLOW = const(0b00000000)
-FAST_FILTER_THRESHOLD_6LSB = const(0b00000100)
-FAST_FILTER_THRESHOLD_7LSB = const(0b00001000)
-FAST_FILTER_THRESHOLD_9LSB = const(0b00001100)
-FAST_FILTER_THRESHOLD_18LSB = const(0b00010000)
-FAST_FILTER_THRESHOLD_21LSB = const(0b00010100)
-FAST_FILTER_THRESHOLD_24LSB = const(0b00011000)
-FAST_FILTER_THRESHOLD_10LSB = const(0b00011100)
+SLOW_FILTER_16X = const(0)
+SLOW_FILTER_8X = const(1)
+SLOW_FILTER_4X = const(2)
+SLOW_FILTER_2X = const(3)
+
+FAST_FILTER_THRESHOLD_SLOW = const(0)
+FAST_FILTER_THRESHOLD_6LSB = const(1)
+FAST_FILTER_THRESHOLD_7LSB = const(2)
+FAST_FILTER_THRESHOLD_9LSB = const(3)
+FAST_FILTER_THRESHOLD_18LSB = const(4)
+FAST_FILTER_THRESHOLD_21LSB = const(5)
+FAST_FILTER_THRESHOLD_24LSB = const(6)
+FAST_FILTER_THRESHOLD_10LSB = const(7)
 
 
 class AS5600:
-
+    """
+    Initialise the PCA9955 chip at ``address`` on ``i2c_bus``.
+    """
     def __init__(self, i2c, address=_AS5600_DEFAULT_I2C_ADDR):
         self._device = i2c_device.I2CDevice(i2c, address)
 
+    # Output Registers
+
     @property
     def angle(self):
-        return self._readTwoBytes(_AS5600_REG_ANGLE_HI, _AS5600_REG_ANGLE_LO)
+        """Get the current 12-bit angle (ANGLE)."""
+        return self._read_16(_REGISTER_ANGLE_HI)
 
     @property
-    def rawAngle(self):
-        return self._readTwoBytes(_AS5600_REG_RAW_ANGLE_HI, _AS5600_REG_RAW_ANGLE_LO)
+    def raw_angle(self):
+        """Get the current unscaled and unmodified 12-bit angle (RAWANGLE)."""
+        return self._read_16(_REGISTER_RAW_ANGLE_HI)
+
+    # Status Registers
 
     @property
-    def scaledAngle360(self):
-        # Coverts angle of 0-4095 into 0-360
-        return int((self._readTwoBytes(_AS5600_REG_ANGLE_HI, _AS5600_REG_ANGLE_LO) << 8) / 0xB5F)
+    def status(self) -> int:
+        """Get the 8-bit status register (STATUS)."""
+        return self._read_8(_REGISTER_STATUS) & _STATUS_MASK
 
     @property
-    def scaledAngle(self):
-        # Coverts angle of 0-4095 into -127 to +127
-        angle = self._readTwoBytes(_AS5600_REG_ANGLE_HI, _AS5600_REG_ANGLE_LO)
-        scaledAngle = 0
-
-        if angle <= 2047:
-            scaledAngle = angle >> 4
-        else:
-            scaledAngle = 0 - (abs(angle - 4095) >> 4)
-        return scaledAngle
+    def is_magnet_too_strong(self) -> bool:
+        """ Test MH Status Bit"""
+        return bool(self.status & _STATUS_MH)
 
     @property
-    def status(self):
-        return self._readByte(_AS5600_REG_STATUS) & 0b00111000
+    def is_magnet_too_weak(self) -> bool:
+        """ Test ML Status Bit"""
+        return bool(self.status & _STATUS_ML)
 
     @property
-    def isMagnetTooStrong(self):
-        isSet = False
-        if self.status & 0b00001000:
-            isSet =  True
-        return isSet
+    def is_magnet_detected(self) -> bool:
+        """ Test MD Status Bit"""
+        return bool(self.status & _STATUS_MD)
 
     @property
-    def isMagnetTooWeak(self):
-        isSet = False
-        if self.status & 0b00010000:
-            isSet =  True
-        return isSet
+    def gain(self) -> int:
+        """Get the 8-bit Automatic Gain Control value (AGC)."""
+        return self._read_8(_REGISTER_AGC)
 
     @property
-    def isMagnetDetected(self):
-        isSet = False
-        if self.status & 0b00100000:
-            isSet =  True
-        return isSet
+    def magnitude(self) -> int:
+        """Get the 12-bit CORDIC magnitude (MAGNITUDE)."""
+        return self._read_16(_REGISTER_MAGNITUDE_HI)
+
+    # Configuration Registers
 
     @property
-    def gain(self):
-        return self._readByte(_AS5600_REG_SAGC)
+    def zmco(self) -> int:
+        """Get the 8-bit burn count (ZMCO)."""
+        return self._read_8(_REGISTER_ZMCO)
 
     @property
-    def magnitude(self):
-        return self._readTwoBytes(_AS5600_REG_MAGNITUDE_HI, _AS5600_REG_MAGNITUDE_LO)
+    def zero_position(self) -> int:
+        """Get and set the 12-bit zero position (ZPOS)."""
+        return self._read_16(_REGISTER_ZPOS_HI)
+
+    @zero_position.setter
+    def zero_position(self, value: int) -> int:
+        if not 0 <= value <= 4095:
+            raise ValueError("Value must be between 0 & 4095")
+        return self._write_16(_REGISTER_ZPOS_HI, value)
 
     @property
-    def zmco(self):
-        return self._readByte(_AS5600_REG_ZMCO)
+    def max_position(self) -> int:
+        """Get and set the 12-bit maximum position (MPOS)."""
+        return self._read_16(_REGISTER_MPOS_HI)
+
+    @max_position.setter
+    def max_position(self, value: int) -> int:
+        if not 0 <= value <= 4095:
+            raise ValueError("Value must be between 0 & 4095")
+        return self._write_16(_REGISTER_MPOS_HI, value)
 
     @property
-    def zeroPosition(self):
-        return self._readTwoBytes(_AS5600_REG_ZPOS_HI, _AS5600_REG_ZPOS_LO)
+    def max_angle(self) -> int:
+        """Get and set the 12-bit maximum angle (MANG)."""
+        return self._read_16(_REGISTER_MANG_HI)
+
+    @max_angle.setter
+    def max_angle(self, value: int) -> int:
+        if not 0 <= value <= 4095:
+            raise ValueError("Value must be between 0 & 4095")
+        return self._write_16(_REGISTER_MANG_HI, value)
 
     @property
-    def maxPosition(self):
-        return self._readTwoBytes(_AS5600_REG_MPOS_HI, _AS5600_REG_MPOS_LO)
+    def power_mode(self) -> int:
+        """Get and set the Power Mode (PM) configuration."""
+        return self._read_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_PM)
+
+    @power_mode.setter
+    def power_mode(self, value: int) -> int:
+        if not POWER_MODE_NOM <= value <= POWER_MODE_LPM3:
+            raise ValueError(f"Power Mode (PM) value must be between {POWER_MODE_NOM} & {POWER_MODE_LPM3}")
+        return self._write_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_PM, value)
 
     @property
-    def maxAngle(self):
-        return self._readTwoBytes(_AS5600_REG_MANG_HI, _AS5600_REG_MANG_LO)
+    def hysteresis(self) -> int:
+        """Get and set the Hysteresis (HYST) configuration."""
+        return self._read_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_HYST)
 
-    def setZeroPosition(self, value):
-        self._writeByte(_AS5600_REG_ZPOS_HI, (value & 0xFF00) >> 8)
-        self._writeByte(_AS5600_REG_ZPOS_LO, (value & 0x00FF))
-        return self._readTwoBytes(_AS5600_REG_ZPOS_HI, _AS5600_REG_ZPOS_LO)
+    @hysteresis.setter
+    def hysteresis(self, value: int) -> int:
+        if not HYSTERESIS_OFF <= value <= HYSTERESIS_3LSB:
+            raise ValueError(f"Hysteresis (HYST) value must be between {HYSTERESIS_OFF} & {HYSTERESIS_3LSB}")
+        return self._write_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_HYST, value)
 
-    def setMaxPosition(self, value):
-        self._writeByte(_AS5600_REG_MPOS_HI, (value & 0xFF00) >> 8)
-        self._writeByte(_AS5600_REG_MPOS_LO, (value & 0x00FF))
-        return self._readTwoBytes(_AS5600_REG_MPOS_HI, _AS5600_REG_MPOS_LO)
+    @property
+    def output_stage(self) -> int:
+        """Get and set the Output Stage (OUTS) configuration."""
+        return self._read_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_OUTS)
 
-    def setMaxAngle(self, value):
-        self._writeByte(_AS5600_REG_MANG_HI, (value & 0xFF00) >> 8)
-        self._writeByte(_AS5600_REG_MANG_LO, (value & 0x00FF))
-        return self._readTwoBytes(_AS5600_REG_MANG_HI, _AS5600_REG_MANG_LO)
+    @output_stage.setter
+    def output_stage(self, value: int) -> int:
+        if not OUTPUT_STAGE_ANALOG_FULL <= value <= OUTPUT_STAGE_DIGITAL_PWM:
+            raise ValueError(f"Output Stage (OUTS) value must be between{OUTPUT_STAGE_ANALOG_FULL} & {OUTPUT_STAGE_DIGITAL_PWM}")
+        return self._write_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_OUTS, value)
 
-    def setHysteresis(self, hysteresis):
-        result = False
-        if hysteresis == HYSTERESIS_OFF\
-        or hysteresis == HYSTERESIS_1LSB\
-        or hysteresis == HYSTERESIS_2LSB\
-        or hysteresis == HYSTERESIS_3LSB:
-            result = self._setConf(_AS5600_REG_CONF_LO, _HYSTERESIS_MASK, hysteresis)
-        return result
+    @property
+    def pwm_frequency(self) -> int:
+        """Get and set the PWM Frequency (PWMF) configuration."""
+        return self._read_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_PWMF)
 
-    def setOutputStage(self, outputStage):
-        result = False
-        if outputStage == OUTPUT_STAGE_ANALOG_FULL\
-        or outputStage == OUTPUT_STAGE_ANALOG_REDUCED\
-        or outputStage == OUTPUT_STAGE_DIGITAL_PWM:
-            result = self._setConf(_AS5600_REG_CONF_LO, _OUTPUT_STAGE_MASK, outputStage)
-        return result
+    @pwm_frequency.setter
+    def pwm_frequency(self, value: int) -> int:
+        if not PWM_FREQUENCY_115HZ <= value <= PWM_FREQUENCY_920HZ:
+            raise ValueError(f"PWM Frequency (PWMF) value must be between {PWM_FREQUENCY_115HZ} & {PWM_FREQUENCY_920HZ}")
+        return self._write_conf_register(_REGISTER_CONF_LO, _2_BITS, _BIT_PWMF, value)
 
-    def setPwmFrequency(self, frequencySelector):
-        result = False
-        if frequencySelector == PWM_FREQUENCY_115HZ\
-        or frequencySelector == PWM_FREQUENCY_230HZ\
-        or frequencySelector == PWM_FREQUENCY_460HZ\
-        or frequencySelector == PWM_FREQUENCY_920HZ:
-            result = self._setConf(_AS5600_REG_CONF_LO, _PWM_FREQUENCY_MASK, frequencySelector)
-        return result
+    @property
+    def slow_filter(self) -> int:
+        """Get and set the Slow Filter (SF) configuration."""
+        return self._read_conf_register(_REGISTER_CONF_HI, _2_BITS, _BIT_SF)
 
-    def setPowerMode(self, mode):
-        result = False
-        if mode == POWER_MODE_NOM\
-        or mode == POWER_MODE_LPM1\
-        or mode == POWER_MODE_LPM2\
-        or mode == POWER_MODE_LPM3:
-            result = self._setConf(_AS5600_REG_CONF_LO, _POWER_MODE_MASK, mode)
-        return result
+    @slow_filter.setter
+    def slow_filter(self, value: int) -> int:
+        if not SLOW_FILTER_16X <= value <= SLOW_FILTER_2X:
+            raise ValueError(f"Slow  Filter (SF) value must be between {SLOW_FILTER_16X} & {SLOW_FILTER_2X}")
+        return self._write_conf_register(_REGISTER_CONF_HI, _2_BITS, _BIT_SF, value)
 
-    def setSlowFilter(self, filterSelector):
-        result = False
-        if filterSelector == SLOW_FILTER_16X\
-        or filterSelector == SLOW_FILTER_8X\
-        or filterSelector == SLOW_FILTER_4X\
-        or filterSelector == SLOW_FILTER_2X:
-            result = self._setConf(_AS5600_REG_CONF_HI, _SLOW_FILTER_MASK, filterSelector)
-        return result
+    @property
+    def fast_filter(self) -> int:
+        """Get and set the Fast Filter Threshold (FTH) configuration."""
+        return self._read_conf_register(_REGISTER_CONF_HI, _3_BITS, _BIT_FTH)
 
-    def setFastFilter(self, filterSelector):
-        result = False
-        if filterSelector == FAST_FILTER_THRESHOLD_SLOW\
-        or filterSelector == FAST_FILTER_THRESHOLD_6LSB\
-        or filterSelector == FAST_FILTER_THRESHOLD_7LSB\
-        or filterSelector == FAST_FILTER_THRESHOLD_9LSB\
-        or filterSelector == FAST_FILTER_THRESHOLD_18LSB\
-        or filterSelector == FAST_FILTER_THRESHOLD_21LSB\
-        or filterSelector == FAST_FILTER_THRESHOLD_24LSB\
-        or filterSelector == FAST_FILTER_THRESHOLD_10LSB:
-            result = self._setConf(_AS5600_REG_CONF_HI, _FAST_FILTER_MASK, filterSelector)
-        return result
+    @fast_filter.setter
+    def fast_filter(self, value: int) -> int:
+        if not FAST_FILTER_THRESHOLD_SLOW <= value <= FAST_FILTER_THRESHOLD_10LSB:
+            raise ValueError(f"Fast  Filter (FTH) value must be between {FAST_FILTER_THRESHOLD_SLOW} & {FAST_FILTER_THRESHOLD_10LSB}")
+        return self._write_conf_register(_REGISTER_CONF_HI, _3_BITS, _BIT_FTH, value)
 
-    def burnAngle(self):
-         self._writeByte(_AS5600_REG_BURN, _BURN_ANGLE_COMMAND)
+    @property
+    def watch_dog(self) -> int:
+        """Get and set the Watchdog (WD) configuration."""
+        return self._read_conf_register(_REGISTER_CONF_HI, _1_BIT, _BIT_WD)
 
-    def burnSettings(self):
-        # burns in MaxAngle and Config
-        self._writeByte(_AS5600_REG_BURN, _BURN_SETTINGS_COMMAND)
+    @watch_dog.setter
+    def watch_dog(self, value: int) -> int:
+        if not 0 <= value <= 1:
+            raise ValueError("Watchdog (WD) value must be 0 or 1")
+        return self._write_conf_register(_REGISTER_CONF_HI, _1_BIT, _BIT_WD, value)
 
-    def _setConf(self, register, mask, value):
-        result = False
-        currentValue = self._readByte(register)
-        newValue = (currentValue & mask) | value
-        self._writeByte(register, newValue)
-        if self._readByte(register) == newValue:
-            result = True
-        return result
+    # Burn Commands
 
-    def _readByte(self, address):
+    def burn_in_angle(self):
+        """Perform a permanent writing of ZPOS and MPOS to non-volatile memory"""
+        self._write_8(_REGISTER_BURN, _BURN_ANGLE_COMMAND)
+
+    def burn_in_settings(self):
+        """Perform a permanent writing of MANG and CONFIG to non-volatile memory"""
+        self._write_8(_REGISTER_BURN, _BURN_SETTINGS_COMMAND)
+
+    # Internal Class Functions
+
+    def _read_8(self, address: int) -> int:
         # Read and return a byte from the specified 8-bit register address.
+        result = bytearray(1)
         with self._device as i2c:
-            result = bytearray(1)
             i2c.write(bytes([address]))
             i2c.readinto(result)
-            return result[0]
+        return result[0]
 
-    def _readTwoBytes(self, address_hi, address_lo):
-        # Read and return a 16-bit unsigned value.
-        hi = self._readByte(address_hi)
-        lo = self._readByte(address_lo)
-        return (hi << 8) | lo
-
-    def _writeByte(self, address, value):
+    def _write_8(self, address: int, value: int) -> int:
         # write a byte to the specified 8-bit register address.
+        result = bytearray(1)
         with self._device as i2c:
             i2c.write(bytes([address, value]))
+            i2c.write(bytes([address]))
+            i2c.readinto(result)
+        return result[0]
+
+    def _read_16(self, address: int) -> int:
+        # Read and return a 16-bit unsigned big endian value read from the specified 16-bit register address.
+        result = bytearray(2)
+        with self._device as i2c:
+            i2c.write(bytes([address]))
+            i2c.readinto(result)
+        return (result[0] << 8) | result[1]
+
+    def _write_16(self, address: int, value: int) -> int:
+        # Write a 16-bit big endian value to the specified 16-bit register address.
+        result = bytearray(2)
+        with self._device as i2c:
+            i2c.write(bytes([address, (value & 0xFF00) >> 8, value & 0x00FF]))
+            i2c.write(bytes([address]))
+            i2c.readinto(result)
+        return (result[0] << 8) | result[1]
+
+    def _read_conf_register(self, register: int, mask: int, offset: int) -> int:
+        # Read configuration register bits
+        mask = mask << offset
+        result = self._read_8(register)
+        return (result & mask) >> offset
+
+    def _write_conf_register(self, register: int, mask: int, offset: int, value: int) -> int:
+        # Write configuration register bits
+        mask = mask << offset
+        inverse_mask = ~mask & 0xFF
+        current_value = self._read_8(register)
+        value = (current_value & inverse_mask) | (value << offset)
+        result = self._write_8(register, value)
+        return (result & mask) >> offset

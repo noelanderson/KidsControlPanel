@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 375 375" version="1.1" viewBox="0 0 375 375" xmlns="http://www.w3.org/2000/svg">
+ <filter>
+  <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="5"/>
+  <feOffset dx="0" dy="0" in="blur" result="offsetBlurredAlpha"/>
+  <feMerge>
+   <feMergeNode in="offsetBlurredAlpha"/>
+   <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+ </filter>
+ <circle cx="187.5" cy="187.5" r="161" fill="#232323"/>
+ <g fill="none" stroke="#fff" stroke-miterlimit="10">
+  <g stroke-width="4">
+   <line x1="37.4" x2="60.83" y1="187.5" y2="187.5"/>
+   <line x1="81.36" x2="97.93" y1="81.36" y2="97.93"/>
+   <line x1="187.5" x2="187.5" y1="37.4" y2="60.83"/>
+   <line x1="293.63" x2="277.07" y1="81.37" y2="97.93"/>
+   <line x1="335.75" x2="312.61" y1="210.98" y2="207.31"/>
+   <line x1="335.75" x2="312.61" y1="164.02" y2="167.68"/>
+   <line x1="293.63" x2="277.07" y1="293.64" y2="277.07"/>
+   <line x1="187.5" x2="187.5" y1="337.6" y2="314.17"/>
+   <line x1="81.36" x2="97.93" y1="293.64" y2="277.07"/>
+  </g>
+  <g stroke-width="2">
+   <line x1="37.86" x2="53.79" y1="175.72" y2="176.98"/>
+   <line x1="39.25" x2="55.03" y1="164.02" y2="166.52"/>
+   <line x1="41.55" x2="57.09" y1="152.46" y2="156.19"/>
+   <line x1="44.75" x2="59.94" y1="141.12" y2="146.05"/>
+   <line x1="48.83" x2="63.59" y1="130.06" y2="136.17"/>
+   <line x1="53.76" x2="68" y1="119.36" y2="126.61"/>
+   <line x1="59.52" x2="73.14" y1="109.07" y2="117.42"/>
+   <line x1="66.07" x2="78.99" y1="99.27" y2="108.67"/>
+   <line x1="73.36" x2="85.51" y1="90.02" y2="100.39"/>
+   <line x1="37.86" x2="53.79" y1="199.28" y2="198.02"/>
+   <line x1="39.25" x2="55.03" y1="210.98" y2="208.48"/>
+   <line x1="41.55" x2="57.09" y1="222.54" y2="218.81"/>
+   <line x1="44.75" x2="59.95" y1="233.88" y2="228.94"/>
+   <line x1="48.83" x2="63.59" y1="244.94" y2="238.82"/>
+   <line x1="53.76" x2="68" y1="255.64" y2="248.39"/>
+   <line x1="59.52" x2="73.14" y1="265.93" y2="257.58"/>
+   <line x1="66.07" x2="79" y1="275.73" y2="266.33"/>
+   <line x1="73.37" x2="85.51" y1="284.98" y2="274.6"/>
+   <line x1="99.28" x2="108.67" y1="308.93" y2="296"/>
+   <line x1="119.36" x2="126.61" y1="321.24" y2="307"/>
+   <line x1="141.12" x2="146.05" y1="330.25" y2="315.05"/>
+   <line x1="164.02" x2="166.52" y1="335.75" y2="319.97"/>
+   <line x1="210.98" x2="208.48" y1="335.75" y2="319.97"/>
+   <line x1="233.88" x2="228.94" y1="330.25" y2="315.05"/>
+   <line x1="255.64" x2="248.39" y1="321.24" y2="307"/>
+   <line x1="275.72" x2="266.33" y1="308.93" y2="296.01"/>
+   <line x1="308.93" x2="296" y1="275.73" y2="266.34"/>
+   <line x1="321.24" x2="307" y1="255.65" y2="248.39"/>
+   <line x1="330.25" x2="315.05" y1="233.89" y2="228.95"/>
+   <line x1="330.25" x2="315.05" y1="141.12" y2="146.06"/>
+   <line x1="321.24" x2="307" y1="119.36" y2="126.62"/>
+   <line x1="308.93" x2="296" y1="99.28" y2="108.67"/>
+   <line x1="275.73" x2="266.33" y1="66.07" y2="79"/>
+   <line x1="255.64" x2="248.39" y1="53.77" y2="68.01"/>
+   <line x1="233.88" x2="228.95" y1="44.75" y2="59.95"/>
+   <line x1="210.98" x2="208.48" y1="39.25" y2="55.04"/>
+   <line x1="164.02" x2="166.52" y1="39.25" y2="55.04"/>
+   <line x1="141.12" x2="146.06" y1="44.75" y2="59.95"/>
+   <line x1="119.36" x2="126.62" y1="53.77" y2="68"/>
+   <line x1="99.28" x2="108.67" y1="66.07" y2="79"/>
+   <path d="m324.18 165.85s3 8.31 3 21.98c0 13.17-3 21.32-3 21.32"/>
+  </g>
+ </g>
+ <text transform="translate(70.363 195.67)" fill="#FFFFFF" font-family="'ARIAL'" font-size="25px">0</text>
+ <g stroke="#fff" stroke-miterlimit="10">
+  <path d="m108.58 168.79h-36.25s0.34-4.49 2.31-11.31c1.69-5.88 3.94-10.07 3.94-10.07" fill="none" stroke-width="2"/>
+  <polygon points="79.21 146.05 75.33 148.29 79.98 150.23" fill="#fff"/>
+  <path d="m108.58 206.21h-36.25s0.34 4.49 2.31 11.31c1.69 5.88 3.94 10.07 3.94 10.07" fill="none" stroke-width="2"/>
+  <polygon points="79.21 228.95 75.33 226.71 79.98 224.77" fill="#fff"/>
+ </g>
+ <g fill="#FFFFFF" font-family="'ARIAL'">
+  <text transform="translate(112.17 172.17)" font-size="10px">UP</text>
+  <text transform="translate(112.17 210.17)" font-size="10px">DOWN</text>
+  <g font-size="25px">
+   <text transform="translate(180.83 89.649)">1</text>
+   <text transform="translate(179.83 304)">1</text>
+   <text transform="translate(99.276 119.36)">.5</text>
+   <text transform="translate(99.277 271.03)">.5</text>
+  </g>
+ </g>
+ <text transform="translate(246.01 122.98)" fill="#FFFFFF" font-family="'ARIAL'" font-size="25px"><tspan x="0" y="0" letter-spacing="-3">1</tspan> <tspan x="10.88" y="0">.5</tspan></text>
+ <text transform="translate(248.39 269.32)" fill="#FFFFFF" font-family="'ARIAL'" font-size="25px"><tspan x="0" y="0" letter-spacing="-3">1</tspan> <tspan x="10.88" y="0">.5</tspan></text>
+ <g fill="#FFFFFF" font-family="'ARIAL'">
+  <text transform="translate(292.07 196.02)" font-size="25px" letter-spacing="-3">2</text>
+  <text transform="translate(130.62 153.19)" font-size="14px">VERTICAL SPEED</text>
+  <text transform="translate(133.62 229.86)" font-size="14px">1000FT PER MIN</text>
+ </g>
+</svg>
