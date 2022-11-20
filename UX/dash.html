@@ -27,13 +27,13 @@
         var vsi = new VerticalSpeedIndicator('leftLower', 222);
         var attitude = new AttitudeIndicator('center', 580);
 
-        // Update at 10Hz
         var increment = 0;
         var maxAirspeed = 800;
         var maxRateOfClimb = 1900;
         var maxRoll = 30;
         var maxPitch = 90;
-        
+
+        // Update at 10Hz
         setInterval(function () {
             airspeed.speed = maxAirspeed/2 + maxAirspeed/2 * Math.sin(increment / 20);
             heading.direction = increment;
